@@ -1,5 +1,5 @@
-import { Directive, Input } from '@angular/core';
-import { ResizableComponent } from '../resizable/resizable.component';
+import { Directive, Inject, Input } from '@angular/core';
+import type { ResizableComponent } from '../resizable/resizable.component';
 
 export type Position = 'top' | 'end' | 'bottom' | 'start';
 
@@ -8,7 +8,7 @@ export type Position = 'top' | 'end' | 'bottom' | 'start';
 })
 export class ResizableGlyphDirective {
 
-  constructor(private resizable: ResizableComponent) { }
+  constructor(@Inject('RESIZABLE') private resizable: ResizableComponent) { }
 
   @Input('resizableGlyph') positions: Position[] = [];
 
