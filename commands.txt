@@ -1,0 +1,9 @@
+ng new import-cycles --style=scss --create-application=false
+ng g library testlib
+cd projects/testlib/src/lib
+ng g module resizable
+cd resizable
+ng g c resizable --export
+ng g directive resizable-glyph/resizableGlyph --export
+
+npm run build -- --configuration production
