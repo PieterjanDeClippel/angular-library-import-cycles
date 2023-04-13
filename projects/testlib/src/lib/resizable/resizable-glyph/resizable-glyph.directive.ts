@@ -1,6 +1,4 @@
-// import { Directive, Inject, Input } from '@angular/core';
-// // import { ResizableComponent } from '../resizable/resizable.component'; // Project won't build (npm run build -- --configuration production)
-import { Directive, Input } from '@angular/core';
+import { Directive, Inject, Input } from '@angular/core';
 import type { ResizableComponent } from '../resizable/resizable.component'; // Unit tests don't work
 
 // export type Position = 'top' | 'end' | 'bottom' | 'start';
@@ -10,8 +8,11 @@ import type { ResizableComponent } from '../resizable/resizable.component'; // U
 })
 export class ResizableGlyphDirective {
 
-//   constructor(@Inject('RESIZABLE') private resizable: ResizableComponent) { }
+  // Using ResizableComponent in the constructor fails
+  constructor(@Inject('RESIZABLE') resizable: any) {
+    this.resizable = resizable;
+  }
 
   @Input('resizableGlyph') positions: ('top' | 'end' | 'bottom' | 'start')[] = [];
-  d?: ResizableComponent;
+  resizable: ResizableComponent;
 }
