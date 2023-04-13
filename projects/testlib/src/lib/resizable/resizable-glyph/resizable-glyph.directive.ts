@@ -3,7 +3,7 @@
 import { Directive, Input } from '@angular/core';
 import type { ResizableComponent } from '../resizable/resizable.component'; // Unit tests don't work
 
-// // export type Position = 'top' | 'end' | 'bottom' | 'start';
+// export type Position = 'top' | 'end' | 'bottom' | 'start';
 
 @Directive({
   selector: '[resizableGlyph]'
@@ -13,5 +13,5 @@ export class ResizableGlyphDirective {
 //   constructor(@Inject('RESIZABLE') private resizable: ResizableComponent) { }
 
   @Input('resizableGlyph') positions: ('top' | 'end' | 'bottom' | 'start')[] = [];
-
+  d?: ResizableComponent;
 }
